@@ -6,7 +6,7 @@
 
   Para crear el esquema de modulación BPSK se inicia leyendo la lista de 10000 bits brindada. Se asigna una frecuencia de operación de 5000 Hz, como se solicita, lo cual produce un período de 0.2 ms. Se definen además 50 puntos de muestreo para cada período. Tomando en cuenta estas consideraciones, se genera una forma de onda sinusoidal normalizada para transmitir los bits. Al hacer el plot de esta figura se obtiene: 
   
-  %%%%%%%%%%%%%%%%%%%%%%%%%%% GRAFICA SENO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   ![enter image description here](/onda.png)
   
   Con esta forma de onda, ahora solo se necesita realizar la modulación BPSK. Aquí se crea la variable *senal* para almacenar los datos de la señal modulada. Esta modulación se realizó con el siguiente fragmento de código: 
   
@@ -19,7 +19,7 @@
             
   Donde *pts* es la variable que contiene el número de puntos de muestreo por período y *sen* es la variable que contiene la forma de onda sinusoidal. Con esta modulación, se obuvo la gráfica para los primeros 10 bits de la lista, se usa una muestra de la lista como esta pues el graficar la modulación de los 10 000 bits no sería de mucha utilidad puesto que son muchos y en la gráfica no se apreciaría el comportamiento, asique solo se grafica la modulación de una fracción pequeña de los bits para confirmar la correcta modulación. La gráfica obtenida es la siguiente: 
   
-  %%%%%%%%%%%%%%%%%%%%%%% GRFICA MODULACION %%%%%%%%%%%%%%%%%%%
+  ![enter image description here](/ModulaciónBPSK.png)
   
   Con la gráfica es posible confirmar la validez de la modulación BPSK obtenida, puesto que se observa claramente los cambios en la onda sinusoidal cuando hay un cambio en los bits. Es decir, si en la cadena de bits hay una serie de ceros (0, 0, 0), en la modulación que se obtendrá se va a observar la gráfica sinusoidal (*sen*), pero si hay un cambio (como en 0, 0, 1) se va a observar un cambio en la fase en la forma de onda (*-sen*). Este comportamiento es justamente el obtenido. 
   
@@ -43,11 +43,11 @@
     
   Al graficar esta señal ruidosa para un SNR de -2 se obtiene la siguiente gráfica:
  
-  %%%%%% RUIDO SNR2 %%%%%%%%%%%%%%%%%%%%%
+   ![enter image description here](/Ruido.png)
  
   Las señales ruidosas obtenidas para todos los seis valores necesarios de SNR se muestra en la siguiente grafica: 
  
-  %%%%%%%%% RUID0 %%%%%%%%%%%%%%%%
+  ![enter image description here](/RuidoTodas.png)
  
  - **(10 %) Graficar la densidad espectral de potencia de la señal con el método de Welch (SciPy), antes y después del canal ruidoso.**
   Para graficar la densidad espectral de potencia antes del ruido se usaron las siguientes líneas de código: 
@@ -59,7 +59,7 @@
     
  Para esta densidad espectral se obtuvo la misma gráfica para todos los valores de SNR, esto es de esperar pues esto es antes del ruido, por lo que no se debe ver afectada por    este. La gráfica obtenida es la siguiente: 
  
- %%%%%%%%%%%%%%%%%%%%% DENSIDAD 1 %%%%%%%%%%%%%%%%%%%
+ ![enter image description here](/DensidadAntes.png)
  
   Para graficar la densidad espectral de potencia después del ruido se usaron las siguientes líneas de código: 
  
@@ -70,7 +70,7 @@
  
  Para esta gráfica se puede observar cómo para diferentes valores de SNR el comportamiento es el mismo, sin embargo hay una variación en la magnitud de la densidad espectral.  Esto se observa en la siguiente gráfica, donde la línea azul es la densidad cuando SNR = -2, la línea anaranjada cuando SNR = -1 y así sucesivamente: 
  
- %%%%%%%%%%%%%%%%% DENSIDAD 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ ![enter image description here](/DensidadDespues.png)
  
  - **(20 %) Demodular y decodificar la señal y hacer un conteo de la tasa de error de bits (BER, bit error rate) para cada nivel SNR.**
  
@@ -112,11 +112,11 @@ Como se observa, para estos valores de SNR se obtuvieron valores más claros de 
 - **(20 %) Graficar BER versus SNR.**
 La gráfica obtenida cuando se usan valores de SNR entre -2 y 3 dB es: 
 
-%%%%%%%%%%% -2 a 3 %%%%%%%%%%%%%%%
+![enter image description here](/BERvsSNR_2a3.png)
 
 La gráfica obtenida cuando se usan valores de SNR entre -5 y 0 dB es: 
 
-%%%%%%%%%%%%%%%% -5 a 0 %%%%%%%%%%%%%%%
+![enter image description here](/BERvsSNR_5a0.png)
 
 Cabe descatacar que los valores obtenidos para la tasa de error de bits (BER) y por consiguiente estas gráficas, pueden variar de acuerdo a cada simulación, puesto que dependen del comportamiento que tenga el ruido y este se está creando de forma aleatoria cada vez que se corre el programa. 
  
