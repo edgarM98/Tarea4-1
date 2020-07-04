@@ -34,7 +34,7 @@ N = 10000
 f = 5000 # Hz
 
 # Duración del período de cada símbolo (onda)
-T = 1/f 
+T = 1/f # 0.2 ms
 
 # Número de puntos de muestreo por período
 pts = 50
@@ -47,7 +47,7 @@ sen = np.sin(2*np.pi * f * Tpts)
 
 # Visualización de la forma de onda de la portadora
 plt.figure(0)
-plt.plot(Tpts, sen)
+plt.plot(Tpts, sen, color='k')
 plt.xlabel('Tiempo / s')
 
 # Frecuencia de muestreo
