@@ -47,7 +47,7 @@ sen = np.sin(2*np.pi * f * Tpts)
 
 # Visualización de la forma de onda de la portadora
 plt.figure(0)
-plt.plot(Tpts, sen, color='k')
+plt.plot(Tpts, sen)
 plt.xlabel('Tiempo / s')
 
 # Frecuencia de muestreo
@@ -68,9 +68,10 @@ for k, b in enumerate(bits):
 
 # Visualización de los primeros bits modulados
 pb1 = 0
-pb2 = 5
+pb2 = 10
 plt.figure(1)
 plt.plot(senal[pb1*pts:pb2*pts])
+plt.xlabel('Tiempo / s')
 
 ### PARTE 2, calcular la potencia promedio de la señal modulada generada ###
 # Se usan fórmulas conocidad para la potencia y la potencia instantánea de una señal 
@@ -107,9 +108,10 @@ for i in range(6):
     Rx = senal + ruido
     
     # Visualización de los primeros bits recibidos
-    pb = 5
+    pb = 10
     plt.figure(2)
     plt.plot(Rx[0:pb*pts])
+    plt.xlabel('Tiempo / s')
 
     ## PARTE 4, Graficar la densidad espectral de potencia de la señal con el ### 
     ## método de Welch (SciPy), antes y después del canal ruidoso. ##############
@@ -152,4 +154,7 @@ for i in range(6):
 ## PARTE 6, Graficar BER versus SNR ## 
 
 plt.figure(5)
-plt.plot(SNRt, BER)
+plt.plot(BER, SNRt)
+plt.xlabel('BER (bit rate error)')
+plt.ylabel('SNR / dB') 
+
